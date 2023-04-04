@@ -14,24 +14,24 @@
        <form method="post" action="/add_emp_detail" enctype="multipart/form-data">
         @csrf
   <div class="mb-3 my-5">
-    <label  class="form-label">User Name</label>
-    <input type="text" class="form-control" id="" name="name" placeholder="Enter User Name" autocomplete="off" style="width: 30%;">  
+    <label  class="form-label" >User Name</label>
+    <input type="text" class="form-control" id="" name="name" placeholder="Enter User Name" autocomplete="off" style="width: 30%;" pattern="[a-zA-Z]{2,}" required>  
   </div>
   <div class="mb-3 my-5">
     <label  class="form-label">Email</label>
-    <input type="email" class="form-control" id="" name="email" placeholder="Enter your email" autocomplete="off" style="width: 30%;">
+    <input type="email" class="form-control" id="" name="email" placeholder="Enter your email" autocomplete="off" style="width: 30%;" pattern="[^ @]*@[^ @]*" required>
   </div>
   <div class="mb-3 my-5">
     <label  class="form-label">Mobile</label>
-    <input type="text" class="form-control" id="" name="mobile" placeholder="Enter your mobile no." autocomplete="off" style="width: 30%;">
+    <input type="text" class="form-control" id="" name="mobile" placeholder="Enter your mobile no." autocomplete="off" style="width: 30%;" pattern="[6789][0-9]{9}" required>
   </div>  
   <div class="mb-3 my-5">
     <label  class="form-label">Gender</label>
     <div class="dropdown">    
-    <select name="gender" style="width: 20%;">
-      <option value="selected">--Select your Sex--</option>
-      <option>Female</option>
-      <option>Male</option>      
+    <select name="gender" style="width: 20%;" required>
+      <option value="" >--Select your Sex--</option>
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>      
     </select>
   </div>
   </div>

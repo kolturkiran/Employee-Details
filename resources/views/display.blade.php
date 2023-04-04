@@ -2,6 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Employee Details</title>
   <script src="{!!url('/js/jquery.min.js')!!}"></script>
@@ -24,40 +32,30 @@
   </thead>
   <tbody>
     
-     <?php 
-     foreach($emp_crud as $emp_crud){
-        echo ' <tr>     
-      <th scope="row">'.$emp_crud->id.'</th>
-      <td>'.$emp_crud->name.'</td>
-      <td>'.$emp_crud->email.'</td>
-      <td>'.$emp_crud->mobile.'</td>      
-      <td>'.$emp_crud->gender.'</td>
-      <td><button class="btn btn-primary"><a href="emp_detail/'.$emp_crud->id.'" class="text-light">Update</a></button>
-      <button class="btn btn-danger"><a href="delete/'.$emp_crud->id.'" class="text-light">Delete</a></button></td>
+      
+     @foreach($emp_cruds as $emp_crud)
+        <tr>     
+      <th scope="row">{{$emp_crud->id}}</th>
+      <td>{{$emp_crud->name}}</td>
+      <td>{{$emp_crud->email}}</td>
+      <td>{{$emp_crud->mobile}}</td>      
+      <td>{{$emp_crud->gender}}</td>
+      <td><button class="btn btn-primary"><a href="emp_detail/{{$emp_crud->id}}" class="text-light">Update</a></button>
+      <button class="btn btn-danger"><a href="delete/{{$emp_crud->id}}" class="text-light">Delete</a></button></td>
     </tr>
-    <tr>';
-       }
-    ?>
+    <tr>
+      @endforeach
 
   
-  </tbody>
+  </tbody>  
 </table>
+{{ $emp_cruds->links()}}
+
   </div>
+
 <script type="text/javascript">
     $(document).ready(function() {
-      const APP_URL ='http://127.0.0.1:8000';
-        function AddEmployee(){
-           $.ajax({
-               url: APP_URL+"/add_emp_detail",
-               method: 'GET',
-               dataType: 'json',
-               data:{id:2,rad_val:radio},
-               success: function(data)
-               {
-
-               }
-             });
-        }
+      
     });
 </script>
 </body>

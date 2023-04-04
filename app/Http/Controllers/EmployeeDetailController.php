@@ -12,11 +12,12 @@ class EmployeeDetailController extends Controller
      */
     public function index()
     {
-        $emp_crud = employee::orderBy('name','asc')
+        $emp_cruds = employee::orderBy('name','asc')
                     ->orderBy('email','asc')
-                    ->get();
+                    ->paginate(10);
+                    
       
-        return view('display', compact('emp_crud'));
+        return view('display', compact('emp_cruds'));
     }
 
     /**

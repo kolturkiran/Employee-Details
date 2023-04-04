@@ -11,23 +11,23 @@
        <form method="post" action="/update/{{$employeedetail->id}}" >
         @csrf
   <div class="mb-3 my-5">
-    <label  class="form-label">Name</label>
-    <input type="text" class="form-control" id="" name="name" placeholder="Enter your name" autocomplete="off" value="<?php echo $employeedetail->name; ?>">  
+    <label  class="form-label">User Name</label>
+    <input type="text" class="form-control" id="" name="name" placeholder="Enter your name" autocomplete="off" value="<?php echo $employeedetail->name; ?>" pattern="[a-zA-Z]{2,}" required>  
   </div>
   <div class="mb-3 my-5">
     <label  class="form-label">Email</label>
-    <input type="email" class="form-control" id="" name="email" placeholder="Enter your email" autocomplete="off" value="<?php echo $employeedetail->email; ?>">
+    <input type="email" class="form-control" id="" name="email" placeholder="Enter your email" autocomplete="off" value="<?php echo $employeedetail->email; ?>" pattern="[^ @]*@[^ @]*" required>
   </div>
   <div class="mb-3 my-5">
     <label  class="form-label">Mobile</label>
-    <input type="text" class="form-control" id="" name="mobile" placeholder="Enter your mobile no." autocomplete="off" value="<?php echo $employeedetail->mobile; ?>">
+    <input type="text" class="form-control" id="" name="mobile" placeholder="Enter your mobile no." autocomplete="off" value="<?php echo $employeedetail->mobile; ?>" pattern="[6789][0-9]{9}" required>
   </div>
 
   <div class="mb-3 my-5">
     <label  class="form-label">Gender</label>
     <div class="dropdown">    
-    <select name="gender">
-      <option value="selected">--Select your Sex--</option>
+    <select name="gender" required>
+      <option value="">--Select your Sex--</option>
       <option <?php if($employeedetail->gender=='Female')echo 'selected'; ?>>Female</option>
       <option <?php if($employeedetail->gender=='Male') echo 'selected'; ?>>Male</option>      
     </select>
